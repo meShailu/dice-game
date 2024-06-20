@@ -1,3 +1,11 @@
+import NumberSelector from "./NumberSelector";
+import TotalScore from "./TotalScore";
+
 export default function GamePlay() {
-  return <div>GamePlay</div>;
+  return (
+    <main>
+      <TotalScore />
+      <NumberSelector />
+    </main>
+  );
 }
