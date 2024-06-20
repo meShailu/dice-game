@@ -1,5 +1,22 @@
-import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
+
+const NumberSelectorcontainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  .flex {
+    display: flex;
+    gap: 24px;
+  }
+  .error {
+    color: red;
+  }
+  p {
+    font-size: 24px;
+    font-weight: 700px;
+  }
+`;
 
 const Box = styled.div`
   height: 72px;
@@ -9,16 +26,38 @@ const Box = styled.div`
   place-items: center;
   font-size: 24px;
   font-weight: 700;
+  background-color: ${(props) => (props.isSelected ? "black" : "white")};
+  color: ${(props) => (!props.isSelected ? "black" : "white")};
 `;
 
-const NumberSelector = () => {
+const NumberSelector = ({
+  selectedNumber,
+  setSelectedNumber,
+  error,
+  setError,
+}) => {
   const array = [1, 2, 3, 4, 5, 6];
+
+  function numberSelectorHandler(value) {
+    setSelectedNumber(value);
+    setError("");
+  }
   return (
-    <div>
-      {array.map((value, i) => (
-        <Box key={i}>{value}</Box>
-      ))}
-    </div>
+    <NumberSelectorcontainer>
+      <p className="error">{error}</p>
+      <div className="flex">
+        {array.map((value, i) => (
+          <Box
+            isSelected={value === selectedNumber}
+            key={i}
+            onClick={() => numberSelectorHandler(value)}
+          >
+            {value}
+          </Box>
+        ))}
+      </div>
+      <p>Select Number</p>
+    </NumberSelectorcontainer>
   );
 };
 
