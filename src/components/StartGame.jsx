@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "./styled/Button";
 const Container = styled.div`
   max-width: 1180px;
   height: 100vh;
@@ -11,28 +12,6 @@ const Container = styled.div`
       font-size: 96px;
       white-space: nowrap;
     }
-  }
-`;
-
-const Button = styled.button`
-  display: flex;
-  color: white;
-  padding: 10px 18px;
-  background: #000;
-  border-radius: 5px;
-  min-width: 220px;
-  border: none;
-  justify-content: center;
-  font-size: 16px;
-  border: 1px solid transition;
-  cursor: pointer;
-  transition: 0.4s background ease-in;
-
-  &:hover {
-    background: white;
-    border: 1px solid black;
-    color: black;
-    transition: 0.3s background ease-in;
   }
 `;
 
