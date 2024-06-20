@@ -36,7 +36,7 @@ const Button = styled.button`
   }
 `;
 
-export default function StartGame() {
+export default function StartGame({ toggle }) {
   return (
     <Container>
       <div>
@@ -45,7 +45,7 @@ export default function StartGame() {
 
       <div className="content">
         <h1>Dice Game</h1>
-        <Button> Play Now</Button>
+        <Button onClick={toggle}> Play Now</Button>
       </div>
     </Container>
   );
